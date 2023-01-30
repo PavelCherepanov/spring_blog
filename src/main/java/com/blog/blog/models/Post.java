@@ -31,7 +31,7 @@ public class Post {
     public Post() {
     }
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date publicationDate;
     private int views;
 
@@ -81,5 +81,17 @@ public class Post {
 
     public void setPublicationDate(Date publicationDate) {
         this.publicationDate = publicationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", anons='" + anons + '\'' +
+                ", fullText='" + fullText + '\'' +
+                ", publicationDate=" + publicationDate +
+                ", views=" + views +
+                '}';
     }
 }

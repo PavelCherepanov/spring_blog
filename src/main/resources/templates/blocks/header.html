@@ -8,16 +8,17 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/blog" class="nav-link px-2 link-secondary">Блог</a></li>
-          <li><a href="/blog/add" class="nav-link px-2 link-secondary">Добавить статью</a></li>
           <li><a href="/about" class="nav-link px-2 link-dark">Обо мне</a></li>
           <li><a href="/contacts" class="nav-link px-2 link-dark">Контакты</a></li>
+          <li sec:authorize="hasAuthority('ADMIN')"><a href="/blog/add" class="nav-link px-2 link-secondary">Добавить статью</a></li>
+          <li sec:authorize="hasAuthority('ADMIN')"><a href="/users" class="nav-link px-2 link-secondary">Пользователи</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
 
-        <div class="dropdown text-end">
+        <div sec:authorize="isAuthenticated()" class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
           </a>
